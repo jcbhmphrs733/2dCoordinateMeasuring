@@ -9,15 +9,15 @@ class LineSegment:
         self.mp = Coor((p1.x + p2.x) * 0.5, (p1.y + p2.y) * 0.5)
         self.perp_m = m.pow(self.m, -1)
         self.coefficient = np.array([-self.m, 1])
-        self.solution = (m * p1.x) + p1.y
+        self.solution = (self.m * p1.x) + p1.y
 
         pass
 
 class SinglePointLine:
-    def __init__(self, p1, m):
+    def __init__(self, p1, _m):
         
-        self.m = m
+        self.m = _m
         self.perp_m = m.pow(self.m, -1)
         self.coefficient = np.array([-self.m, 1])
-        self.solution = (m * p1.x) + p1.y
+        self.solution = (self.m * p1.x) + p1.y
 

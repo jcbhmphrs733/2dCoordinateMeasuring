@@ -14,7 +14,7 @@ class CPC:
         ab_perp = SinglePointLine(ab.mp, ab.perp_m)
         bc_perp = SinglePointLine(bc.mp, bc.perp_m)
 
-        self.origin = Intersection(ab_perp, bc_perp)
+        self.origin = Intersection(ab_perp, bc_perp).intersect
         
         # # extrapolate ab and bc midpoints using coordinate values
         # ab_mp = Coor((a.x + b.x)*0.5, (a.y + b.y)*0.5)
