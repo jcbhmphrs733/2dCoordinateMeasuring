@@ -7,7 +7,7 @@ class Coor:
         self.y = float(y)
 
 
-class MultiPointCircle:
+class CPC:
     def __init__(self, a, b, c):
         
         # extrapolate ab and bc midpoints using coordinate values
@@ -43,14 +43,34 @@ class MultiPointCircle:
     def print_stats(self):
         print(f'Orgin:({round(self.origin.x, 4)},{round(self.origin.y, 4)}), Radius:{round(self.radius, 4)}')
 
+class Measure():
+    def __init__(self) -> None:
+        pass
 
-a = input("a:")
-b = input("b:")
-c = input("c:")
+def generate_cpc(count):
+    for i in count:
+        a = input("a:")
+        b = input("b:")
+        c = input("c:")
 
-a = Coor(float(a.split(',')[0]),float(a.split(',')[1]))
-b = Coor(float(b.split(',')[0]),float(b.split(',')[1]))
-c = Coor(float(c.split(',')[0]),float(c.split(',')[1]))
+        a = Coor(float(a.split(',')[0]),float(a.split(',')[1]))
+        b = Coor(float(b.split(',')[0]),float(b.split(',')[1]))
+        c = Coor(float(c.split(',')[0]),float(c.split(',')[1]))
 
-myCircle = MultiPointCircle(a, b, c)
-myCircle.print_stats()
+
+
+# Main code logic
+if __name__ == "__main__":
+    a = input("a:")
+    b = input("b:")
+    c = input("c:")
+
+    a = Coor(float(a.split(',')[0]),float(a.split(',')[1]))
+    b = Coor(float(b.split(',')[0]),float(b.split(',')[1]))
+    c = Coor(float(c.split(',')[0]),float(c.split(',')[1]))
+
+    myCircleOne = CPC(a, b, c)
+    myCircleTwo = CPC(a, b, c)
+    myCircleThree = CPC(a, b, c)
+    myCircleFour = CPC(myCircleOne.origin, myCircleTwo.origin, myCircleThree.origin)
+    myCircleFour.print_stats()
