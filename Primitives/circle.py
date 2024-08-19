@@ -1,10 +1,7 @@
 import numpy as np
+from coordinate_point import Coor
 import math as m
-
-class Coor:
-    def __init__(self, x, y):
-        self.x = float(x)
-        self.y = float(y)
+import Math.perp_intersect
 
 
 class CPC:
