@@ -2,7 +2,7 @@ from Primitives.line import *
 from Primitives.coordinate_point import * 
 import numpy as np
 
-class Intersection:
+class LineIntersect:
     def __new__(cls, line1: AbstractLine, line2: AbstractLine):
     
         # establish the 2x2 coefficient matrix and the 2x1 solution matrix 

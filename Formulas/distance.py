@@ -9,7 +9,7 @@ class DistancePTP():
 
 class DistancePTL():
     def __new__(cls, a: Coor, line1: AbstractLine):
-        normal_intersect = Intersection(line1, SinglePointLine(a, line1.perp_m))
+        normal_intersect = LineIntersect(line1, SinglePointLine(a, line1.perp_m))
         return DistancePTP(a, normal_intersect)
 
 

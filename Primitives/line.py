@@ -28,7 +28,7 @@ class LineSegment(AbstractLine):
         self.solution = (-self.m * p1.x) + p1.y
     
     def print_stats(self):
-        print(f' m:{self.m}, mp:({self.mp.x, self.mp.y}), m_perp:{self.perp_m}, coef:{self.coefficient}, solution:{self.solution}')
+        print(f'm:{self.m}\nmp:({self.mp.x, self.mp.y})\nm_perp:{self.perp_m}\ncoef:{self.coefficient}\nsolution:{self.solution}')
 
 
 class SinglePointLine(AbstractLine):
@@ -40,5 +40,19 @@ class SinglePointLine(AbstractLine):
         self.solution = (-self.m * p1.x) + p1.y
 
     def print_stats(self):
-        print(f' m:{self.m}, m_perp:{self.perp_m}, coef:{self.coefficient}, solution:{self.solution}')
+        print(f'm:{self.m}\nm_perp:{self.perp_m}\ncoef:{self.coefficient}\nsolution:{self.solution}')
     
+class BisectorLine(AbstractLine):
+    def __init__(self, line1: AbstractLine, line2: AbstractLine):
+
+        pass
+
+class ParalellLine(AbstractLine):
+    def __init__(self, line1: AbstractLine, p1: Coor):
+        self.m = line1.m
+        self.perp_m = -self.m ** -1
+        self.coefficient = np.array([-self.m, 1])
+        self.solution = (-self.m * p1.x) + p1.y
+
+    def print_stats(self):
+        print(f'm:{self.m}\nm_perp:{self.perp_m}\ncoef:{self.coefficient}\nsolution:{self.solution}')
