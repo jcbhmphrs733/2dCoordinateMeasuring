@@ -8,7 +8,7 @@ class LineSegment:
         self.mp = Coor((p1.x + p2.x) * 0.5, (p1.y + p2.y) * 0.5)
         self.perp_m = -self.m ** -1
         self.coefficient = np.array([-self.m, 1])
-        self.solution = (self.m * p1.x) + p1.y
+        self.solution = (-self.m * p1.x) + p1.y
     
     def print_stats(self):
         print(f' m:{self.m}, mp:({self.mp.x, self.mp.y}), m_perp:{self.perp_m}, coef:{self.coefficient}, solution:{self.solution}')
@@ -20,7 +20,7 @@ class SinglePointLine:
         self.m = _m
         self.perp_m = -self.m ** -1
         self.coefficient = np.array([-self.m, 1])
-        self.solution = (self.m * p1.x) + p1.y
+        self.solution = (-self.m * p1.x) + p1.y
 
     def print_stats(self):
         print(f' m:{self.m}, m_perp:{self.perp_m}, coef:{self.coefficient}, solution:{self.solution}')
