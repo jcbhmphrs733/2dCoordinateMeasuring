@@ -15,8 +15,6 @@ def add_new_object(circles, points, lines):
 
 def test_area():
 
-    exmp_parallel_line = ParalellLine(exmp_single_point_line, a)
-    exmp_parallel_line.print_stats()
 
     pass
 
@@ -30,6 +28,8 @@ c2 = Coor(4,2)
 
 exmp_line_seg = LineSegment(a, b)
 exmp_single_point_line = SinglePointLine(c2, 1/2)
+exmp_parallel_line = ParalellLine(exmp_single_point_line, a)
+exmp_parallel_line.print_stats()
 
 
 # exmp_circle = CPC(a,b,c)
