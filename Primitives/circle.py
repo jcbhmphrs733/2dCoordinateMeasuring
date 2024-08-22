@@ -6,9 +6,8 @@ import math as m
 
 class AbstractCircle(ABC):
 
-    def print_stats(self):
-        print(f'Orgin:({round(self.origin.x, 3)},{round(self.origin.y, 3)})\nRadius: {round(self.radius, 3)}')
-
+    def __str__(self):
+        return f"Orgin:({round(self.origin.x, 3)},{round(self.origin.y, 3)})\nRadius: {round(self.radius, 3)}"
 
 class CPC(AbstractCircle): # Circumference point circle
     def __init__(self, a: Coor, b: Coor, c: Coor):
@@ -27,7 +26,3 @@ class SPC(AbstractCircle): # Single point circle
         
         self.origin = origin
         self.radius = radius
-
-    
-
-
