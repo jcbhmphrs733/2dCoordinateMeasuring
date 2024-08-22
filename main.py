@@ -8,38 +8,31 @@ circles = []
 points = []
 lines = []
 
-
 def add_new_object(circles, points, lines):
 
     pass
 
+a = Coor(0,0)
+
 def test_area():
 
-
+    
     pass
 
-
-a = Coor(-2,1)
-b = Coor(6,5)
-c = Coor(2,-1)
-
-c1 = Coor(3,1)
-c2 = Coor(4,2)
-
-exmp_line_seg = LineSegment(a, b)
-exmp_single_point_line = SinglePointLine(c2, 1/2)
-exmp_parallel_line = ParalellLine(exmp_single_point_line, a)
-exmp_parallel_line.print_stats()
-
-
-# exmp_circle = CPC(a,b,c)
-# exmp_circle.print_stats()
-
-# print(DistancePTP(c1, b))
-# print(DistancePTL(c1, exmp_line_seg))
-
-
-
+# new_c = CPC(a,b,c)
+# de = LineSegment(d,e)
+# fg = LineSegment(f,g)
+# hi = LineSegment(h,i)
+# p3 = LineIntersect(hi, jk)
+# p4 = LineIntersect(lm, jk)
+# newl2 = LineSegment(p2,p5)
+# newl3 = LineSegment(p3,p6)
+# exmp_line_seg = LineSegment(a, c)
+# exmp_single_point_line = SinglePointLine(c2, -3/4)
+# exmp_parallel_line = ParallelLine(a, exmp_single_point_line)
+# print(exmp_line_seg)
+# print(exmp_single_point_line)
+# print(exmp_parallel_line)
 
 # Main code logic
 if __name__ == "__main__":

@@ -4,34 +4,52 @@ from Primitives.coordinate_point import *
 from Primitives.line import *
 
 class Distance():
+    """
+    Ideas for better encapsulation:
+    
+    Factory method that is called from initialization-
+    this could be a possible work around to the __new__method. Deciding which private
+    classes to call after the __init__ but before the return.
 
-    def __new__(cls, obj1, obj2):
-        if isinstance(obj1, Coor) and isinstance(obj2, Coor):
+    def post_init - a double call, once to init and another to set up- 
+    this is my least favorite idea.
+
+    Just make the private methods static so that they are already initialized before I call.
+
+    """
+
+    def __init__(self, *args):
+
+        self.dX = None
+        self.dY = None
+
+        if isinstance(args[0], Coor) and isinstance(args[1], Coor):
             # Constructing distance between two Coor.
-            return cls._point_to_point(obj1, obj2)
-        
-        elif isinstance(obj1, cls.type_circle) and isinstance(obj2, cls.type_circle):
+            self.dist = self._point_to_point(args[0], args[1])
+        elif isinstance(args[0], AbstractCircle) and isinstance(args[1], AbstractCircle):
             # Constructing distance between two circles.
             # Find out if user wants center, min, or max dist
             # Center to center dist
-            return cls._point_to_point(obj1.origin, obj2.origin)
-        
-        elif isinstance(obj1, AbstractLine) and isinstance(obj2, Coor):
+            self.dist = self._point_to_point(args[0].origin, args[1].origin)
+        elif isinstance(args[0], AbstractLine) and isinstance(args[1], Coor) or isinstance(args[0], Coor) and isinstance(args[1], AbstractLine):
             # Constructing distance between line and point.
-            return cls._point_to_line(obj2, obj1)
-        
-        elif isinstance(obj1, Coor) and isinstance(obj2, AbstractLine ):
-            # Constructing distance between point and line.
-            return cls._point_to_line(obj1, obj2)
-
+            if isinstance(args[0], Coor):
+                _coor = args[0]
+                _line = args[1]
+            else: 
+                _coor = args[1]
+                _line = args[0]
+            self.dist = self._point_to_line(_coor, _line)        
         else:
             raise ValueError("Unexpected types provided for parameters.")
 
-    def _point_to_point(a: Coor, b: Coor):
-        # Distance formula
+    def _point_to_point(self, a: Coor, b: Coor):
+
+        # Distance between two coor
         return m.sqrt((b.x - a.x)**2 + (b.y - a.y)**2)
 
-    def _point_to_line(self, a: Coor, line1: AbstractLine):
-        # Normal distance from point to line
+    def _point_to_line(self,a: Coor, line1: AbstractLine):
+        
+        # Distance from point to line along normal path
         normal_intersect = LineIntersect(line1, SinglePointLine(a, line1.perp_m))
         return self._point_to_point(a, normal_intersect)
