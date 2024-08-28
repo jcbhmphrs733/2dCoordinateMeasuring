@@ -6,6 +6,14 @@ import math as m
 
 class AbstractCircle(ABC):
 
+
+    def distance(self, end):
+
+        if isinstance(end, Coor):
+            return self.origin  
+        
+        return
+
     def __str__(self):
         return f"Orgin:({round(self.origin.x, 3)},{round(self.origin.y, 3)})\nRadius: {round(self.radius, 3)}"
 

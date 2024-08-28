@@ -4,20 +4,7 @@ from Primitives.coordinate_point import *
 from Primitives.line import *
 
 class Distance():
-    """
-    Ideas for better encapsulation:
-    
-    Factory method that is called from initialization-
-    this could be a possible work around to the __new__method. Deciding which private
-    classes to call after the __init__ but before the return.
-
-    def post_init - a double call, once to init and another to set up- 
-    this is my least favorite idea.
-
-    Just make the private methods static so that they are already initialized before I call.
-
-    """
-
+ 
     def __init__(self, *args):
 
         self.dX = None
